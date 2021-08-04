@@ -1,0 +1,4 @@
+This is a silly react app. 
+Here, you can enter a search term and the app will display 10 images related to the search term. 
+The images are pulled by making an API request to unsplash.com. 
+The images related to the search terms are displayed in random.
