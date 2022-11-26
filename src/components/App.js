@@ -8,7 +8,9 @@ const App = () => {
 
   const onSearchSubmit = async (term) => {
     const response = await axios.get("https://api.unsplash.com/search/photos", {
-      params: { query: term },
+      params: { 
+        query: term 
+      },
       headers: {
         Authorization: "Client-ID W05zb4dPUhkcz2iGqkgtJz0yg1Z11MNtTy0qk94Ua1k",
       },
