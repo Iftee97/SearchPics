@@ -1,5 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from "./components/App";
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App'
+import { ImagesContextProvider } from './context/ImagesContext'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <ImagesContextProvider>
+    <App />
+  </ImagesContextProvider>,
+  document.getElementById('root')
+)

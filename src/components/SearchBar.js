@@ -1,19 +1,22 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
+import { searchImages } from "../api"
+import { useImagesContext } from "../hooks/useImagesContext"
 
-const SearchBar = ({ onSearchSubmit }) => {
-  const [term, setTerm] = useState("");
+const SearchBar = () => {
+  const [term, setTerm] = useState("")
+  const { dispatch } = useImagesContext()
 
-  const onFormSubmit = (event) => {
-    event.preventDefault();
-
-    onSearchSubmit(term);
-  };
+  const onFormSubmit = async (event) => {
+    event.preventDefault()
+    const images = await searchImages(term)
+    dispatch({ type: "SET_IMAGES", payload: images })
+  }
 
   return (
     <div className="ui segment">
       <form onSubmit={onFormSubmit} className="ui form">
         <div className="field">
-          <label>Image Search</label>
+          <label>Image Search:</label>
           <input
             type="text"
             value={term}
@@ -22,7 +25,7 @@ const SearchBar = ({ onSearchSubmit }) => {
         </div>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default SearchBar;
+export default SearchBar

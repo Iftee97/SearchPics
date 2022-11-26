@@ -1,13 +1,18 @@
-import React from "react";
-import "./ImageList.css";
-import ImageCard from "./ImageCard";
+import React from "react"
+import "./ImageList.css"
+import ImageCard from "./ImageCard"
+import { useImagesContext } from "../hooks/useImagesContext"
 
-const ImageList = ({ images }) => {
-  const imagesList = images.map((image) => {
-    return <ImageCard key={image.id} image={image} />;
-  });
+const ImageList = () => {
+  const { images } = useImagesContext()
 
-  return <div className="image-list">{imagesList}</div>;
-};
+  return (
+    <div className="image-list">
+      {images && images.map((image) => (
+        <ImageCard image={image} key={image.id} />
+      ))}
+    </div>
+  )
+}
 
-export default ImageList;
+export default ImageList
